@@ -1,5 +1,5 @@
-function stringCalculator() {
-  return 0;
+function stringCalculator(string) {
+  return Number(string);
 }
 
 export default stringCalculator;

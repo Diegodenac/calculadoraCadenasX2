@@ -1,7 +1,7 @@
-import sumar from "./sumador.js";
+import stringCalculator from "./strCalculator.js";
 
-describe("Sumar", () => {
-  it("deberia sumar dos numeros", () => {
-    expect(sumar(3, 2)).toEqual(5);
+describe("String Calculator", () => {
+  it("it should return 0 when string is empty", () => {
+    expect(stringCalculator("")).toEqual(0);
   });
 });

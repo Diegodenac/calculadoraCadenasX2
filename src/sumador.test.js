@@ -7,4 +7,7 @@ describe("String Calculator", () => {
   it("it should return the number when string has a number, (1)=>1", () => {
     expect(stringCalculator("1")).toEqual(1);
   });
+  it("it should return the sum of two numbers when string has two numbers splited by ',', (1,2)=>3", () => {
+    expect(stringCalculator("1,2")).toEqual(3);
+  });
 });

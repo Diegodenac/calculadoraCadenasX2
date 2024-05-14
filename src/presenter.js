@@ -1,15 +1,14 @@
-//import sumar from "./sumador";
+import stringCalculator from "./strCalculator.js";
 
-const first = document.querySelector("#primer-numero");
-const second = document.querySelector("#segundo-numero");
-const form = document.querySelector("#sumar-form");
+const string = document.querySelector("#input-string");
+const form = document.querySelector("#stringCalculate-form");
 const div = document.querySelector("#resultado-div");
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
 
-  const firstNumber = Number.parseInt(first.value);
-  const secondNumber = Number.parseInt(second.value);
+  const inputString = string.value;
+  console.log(inputString)
 
-  div.innerHTML = "<p>" + sumar(firstNumber, secondNumber) + "</p>";
+  div.innerHTML = `<p>${stringCalculator(inputString)}</p>`;
 });

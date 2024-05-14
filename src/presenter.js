@@ -8,7 +8,6 @@ form.addEventListener("submit", (event) => {
   event.preventDefault();
 
   const inputString = string.value;
-  console.log(inputString)
 
   div.innerHTML = `<p>${stringCalculator(inputString)}</p>`;
 });

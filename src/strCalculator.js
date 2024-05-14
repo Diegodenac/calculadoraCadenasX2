@@ -10,7 +10,7 @@ function stringCalculator(string) {
     }
     let arrayOfNumbers = splitNumbersOfString(string, comando);
     for (const number of arrayOfNumbers)
-      sum+= number;
+      sum+= number>1000 ? 0:number;
     return sum;
   }
   else return string_to_a_number;

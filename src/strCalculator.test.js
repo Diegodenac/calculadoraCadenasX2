@@ -19,4 +19,7 @@ describe("String Calculator", () => {
   it("it should return the sum of many numbers when string has numbers splited by ',' or '-' or is an specific char in a comando (//[;] 1,2,3-4;5;6)=>21", () => {
     expect(stringCalculator("//[;] 1,2,3-4;5;6")).toEqual(21);
   });
+  it("it should ignore numbers bigger than 1000 for the sum (//[;] 1,2,3-4;1001,5;6)=>21", () => {
+    expect(stringCalculator("//[;] 1,2,3-4;1001,5;6")).toEqual(21);
+  });
 });

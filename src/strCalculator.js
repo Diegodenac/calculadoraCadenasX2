@@ -4,10 +4,9 @@ function stringCalculator(string) {
     let comando = false;
     let sum = 0;
     if(thereComando(string)){
-      let comandoAndString = string.split(" ");
-      let comando_complete = comandoAndString[0];
+      const [comando_complete, newString] = getComandoAndString(string);
+      string = newString;
       comando = getCharOfComando(comando_complete);
-      string = comandoAndString[1];
     }
     let arrayOfNumbers = splitNumbersOfString(string, comando);
     for (const number of arrayOfNumbers)
@@ -15,6 +14,13 @@ function stringCalculator(string) {
     return sum;
   }
   else return string_to_a_number;
+}
+
+function getComandoAndString(string){
+  const comandoAndString = string.split(" ");
+  let comando_complete = comandoAndString[0];
+  string = comandoAndString[1];
+  return [comando_complete, string];
 }
 
 function getCharOfComando(comando_complete){

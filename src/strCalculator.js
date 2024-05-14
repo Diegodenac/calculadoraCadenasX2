@@ -2,13 +2,13 @@ function stringCalculator(string) {
   let string_to_a_number = Number(string);
   if(isNaN(string_to_a_number)) {
     let comando = false;
-    if(string[0]=="/"){
-      console.log(string[0] == "/" && string[1] == "/");
+    let sum = 0;
+    if(thereComando(string)){
       let comandoAndString = string.split(" ");
-      comando = comandoAndString[0][3];
+      let comando_complete = comandoAndString[0];
+      comando = getCharOfComando(comando_complete);
       string = comandoAndString[1];
     }
-    let sum = 0;
     let arrayOfNumbers = splitNumbersOfString(string, comando);
     for (const number of arrayOfNumbers)
       sum+= number;
@@ -17,23 +17,26 @@ function stringCalculator(string) {
   else return string_to_a_number;
 }
 
+function getCharOfComando(comando_complete){
+  let comando = comando_complete[3];
+  return comando;
+}
+
+function thereComando(string){
+  return string[0] == "/" && string[1] == "/"
+};
+
 function splitNumbersOfString(string, comando){
-  const elements_split_by_comas = string.split(',');
   let arrayOfNumbers = [];
-  for (const element_comas of elements_split_by_comas){
-    if(isNaN(Number(element_comas))){
-      const elements_split_by_hyphens = element_comas.split('-');
-      for (const element_hyphens of elements_split_by_hyphens){
-        if(isNaN(Number(element_hyphens) && comando)){
-          const elements_split_by_comando = element_hyphens.split(comando);
+  const elements_split = string.split(/,|-/);
+  for (const element of elements_split){
+    if(isNaN(Number(element && comando))){
+      const elements_split_by_comando = element.split(comando);
           for (const element_comando of elements_split_by_comando)
-            arrayOfNumbers.push(Number(element_comando));    
-        }
-        else arrayOfNumbers.push(Number(element_hyphens));
-      }
+            arrayOfNumbers.push(Number(element_comando));
+      } 
+    else arrayOfNumbers.push(Number(element));
     }
-    else arrayOfNumbers.push(Number(element_comas));
-  }
   return arrayOfNumbers;
 }
 

@@ -3,7 +3,7 @@ function addNumbersIn(string) {
   if(isNaN(string_to_a_number)) {
     let comando = false;
     let sum = 0;
-    if(thereComando(string)){
+    if(isThereAComandoIn(string)){
       const [comando_complete, newString] = getComandoAndString(string);
       string = newString;
       comando = getCharOfComando(comando_complete);
@@ -28,7 +28,7 @@ function getCharOfComando(comando_complete){
   return comando;
 }
 
-function thereComando(string){
+function isThereAComandoIn(string){
   return string[0] == "/" && string[1] == "/"
 };
 

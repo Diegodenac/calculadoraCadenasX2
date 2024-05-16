@@ -1,4 +1,4 @@
-import stringCalculator from "./strCalculator.js";
+import addNumbersIn from "./strCalculator.js";
 
 const string = document.querySelector("#input-string");
 const form = document.querySelector("#stringCalculate-form");
@@ -9,5 +9,5 @@ form.addEventListener("submit", (event) => {
 
   const inputString = string.value;
 
-  div.innerHTML = `<p>${stringCalculator(inputString)}</p>`;
+  div.innerHTML = `<p>${addNumbersIn(inputString)}</p>`;
 });

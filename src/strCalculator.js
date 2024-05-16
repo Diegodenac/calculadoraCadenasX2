@@ -1,4 +1,4 @@
-function stringCalculator(string) {
+function addNumbersIn(string) {
   let string_to_a_number = Number(string);
   if(isNaN(string_to_a_number)) {
     let comando = false;
@@ -46,4 +46,4 @@ function splitNumbersOfString(string, comando){
   return arrayOfNumbers;
 }
 
-export default stringCalculator;
+export default addNumbersIn;

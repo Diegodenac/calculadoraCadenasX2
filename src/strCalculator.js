@@ -1,6 +1,6 @@
 function addNumbersIn(string) {
-  let string_to_a_number = Number(string);
-  if(isNaN(string_to_a_number)) {
+  let theSum = Number(string);
+  if(isNaN(theSum)) {
     let charSplit = false;
     let sum = 0;
     if(isThereAComandoIn(string)){
@@ -13,7 +13,7 @@ function addNumbersIn(string) {
       sum+= number>1000 ? 0:number;
     return sum;
   }
-  else return string_to_a_number;
+  else return theSum;
 }
 
 function getComandoAndString(string){

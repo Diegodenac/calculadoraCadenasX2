@@ -1,7 +1,12 @@
 function addNumbersIn(inputString) {
-  let theSum = 0;
   const [charSplit, string] = splitCharComandoAnd(inputString);
   let arrayOfNumbers = getNumbersIn(string, charSplit);
+  let theSum = addArrayWithout1000(arrayOfNumbers);
+  return theSum;
+}
+
+function addArrayWithout1000(arrayOfNumbers){
+  let theSum = 0;
   for (const number of arrayOfNumbers)
     theSum+= number>1000 ? 0:number;
   return theSum;

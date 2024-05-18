@@ -1,15 +1,20 @@
-function addNumbersIn(string) {
+function addNumbersIn(inputString) {
+  let theSum = 0;
+  const [charSplit, string] = splitCharComandoAnd(inputString);
+  let arrayOfNumbers = getNumbersIn(string, charSplit);
+  for (const number of arrayOfNumbers)
+    theSum+= number>1000 ? 0:number;
+  return theSum;
+}
+
+function splitCharComandoAnd(string){
   let charSplit = false;
   if(isThereAComandoIn(string)){
     const [comando_complete, newString] = getComandoAndString(string);
     string = newString;
     charSplit = getCharOfComando(comando_complete);
   }
-  let theSum = 0;
-  let arrayOfNumbers = getNumbersIn(string, charSplit);
-  for (const number of arrayOfNumbers)
-    theSum+= number>1000 ? 0:number;
-  return theSum;
+  return [charSplit, string];
 }
 
 function getNumbersIn(string, charSplit){

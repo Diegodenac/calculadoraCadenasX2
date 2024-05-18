@@ -1,19 +1,24 @@
 function addNumbersIn(string) {
-  let theSum = Number(string);
-  if(isNaN(theSum)) {
-    let charSplit = false;
-    let sum = 0;
-    if(isThereAComandoIn(string)){
-      const [comando_complete, newString] = getComandoAndString(string);
-      string = newString;
-      charSplit = getCharOfComando(comando_complete);
-    }
-    let arrayOfNumbers = splitNumbersOfString(string, charSplit);
-    for (const number of arrayOfNumbers)
-      sum+= number>1000 ? 0:number;
-    return sum;
+  let charSplit = false;
+  if(isThereAComandoIn(string)){
+    const [comando_complete, newString] = getComandoAndString(string);
+    string = newString;
+    charSplit = getCharOfComando(comando_complete);
   }
-  else return theSum;
+  let theSum = 0;
+  let arrayOfNumbers = getNumbersIn(string, charSplit);
+  for (const number of arrayOfNumbers)
+    theSum+= number>1000 ? 0:number;
+  return theSum;
+}
+
+function getNumbersIn(string, charSplit){
+  let numbersInString = Number(string);
+  let arrayOfNumbers = [];
+  if(isNaN(numbersInString)){  
+    arrayOfNumbers = splitNumbersOfString(string, charSplit);
+  } else arrayOfNumbers.push(numbersInString);
+  return arrayOfNumbers;
 }
 
 function getComandoAndString(string){
